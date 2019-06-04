@@ -1,0 +1,516 @@
+/*----------------------------
+  NoteBook
+  ----------------------------
+
+  PROJECT:Paralign
+  DATE: 30/5/2019
+  AUTHUR: Nguyen The Nhat
+
+
+ -----------------------------*/
+/*Import-Path*/
+$get-path-font: "../fonts";
+$get-name-1:"ProximaNova-RegularIt";
+$get-name-2:"ProximaNova-Regular";
+$get-name-3:"ProximaNova-LightIt";
+$get-name-4:"ProximaNova-Light";
+$get-name-5:"ProximaNova-BoldIt";
+$get-name-6:"ProximaNova-Bold";
+$get-name-7:"ProximaNova-Black";
+$get-path-1: "#{$get-path-font}/#{$get-name-1}";
+$get-path-2: "#{$get-path-font}/#{$get-name-2}";
+$get-path-3: "#{$get-path-font}/#{$get-name-3}";
+$get-path-4: "#{$get-path-font}/#{$get-name-4}";
+$get-path-5: "#{$get-path-font}/#{$get-name-5}";
+$get-path-6: "#{$get-path-font}/#{$get-name-6}";
+$get-path-7: "#{$get-path-font}/#{$get-name-7}";
+/*Import Fonts*/
+@font-face {
+  font-family: '#{$get-name-1}';
+  src: url('#{$get-path-1}.eot');
+  src: url('#{$get-path-1}.eot?#iefix') format('embedded-opentype'),
+  url('#{$get-path-1}.woff2') format('woff2'),
+  url('#{$get-path-1}.woff') format('woff'),
+  url('#{$get-path-1}.ttf') format('truetype'),
+  url('#{$get-path-1}.svg##{$get-name-1}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '#{$get-name-2}';
+  src: url('#{$get-path-2}.eot');
+  src: url('#{$get-path-2}.eot?#iefix') format('embedded-opentype'),
+  url('#{$get-path-2}.woff2') format('woff2'),
+  url('#{$get-path-2}.woff') format('woff'),
+  url('#{$get-path-2}.ttf') format('truetype'),
+  url('#{$get-path-2}.svg##{$get-name-2}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '#{$get-name-3}';
+  src: url('#{$get-path-3}.eot');
+  src: url('#{$get-path-3}.eot?#iefix') format('embedded-opentype'),
+  url('#{$get-path-3}.woff2') format('woff2'),
+  url('#{$get-path-3}.woff') format('woff'),
+  url('#{$get-path-3}.ttf') format('truetype'),
+  url('#{$get-path-3}.svg##{$get-name-3}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '#{$get-name-4}';
+  src: url('#{$get-path-4}.eot');
+  src: url('#{$get-path-4}.eot?#iefix') format('embedded-opentype'),
+  url('#{$get-path-4}.woff2') format('woff2'),
+  url('#{$get-path-4}.woff') format('woff'),
+  url('#{$get-path-4}.ttf') format('truetype'),
+  url('#{$get-path-4}.svg##{$get-name-4}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '#{$get-name-5}';
+  src: url('#{$get-path-5}.eot');
+  src: url('#{$get-path-5}.eot?#iefix') format('embedded-opentype'),
+  url('#{$get-path-5}.woff2') format('woff2'),
+  url('#{$get-path-5}.woff') format('woff'),
+  url('#{$get-path-5}.ttf') format('truetype'),
+  url('#{$get-path-5}.svg##{$get-name-5}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '#{$get-name-6}';
+  src: url('#{$get-path-6}.eot');
+  src: url('#{$get-path-6}.eot?#iefix') format('embedded-opentype'),
+  url('#{$get-path-6}.woff2') format('woff2'),
+  url('#{$get-path-6}.woff') format('woff'),
+  url('#{$get-path-6}.ttf') format('truetype'),
+  url('#{$get-path-6}.svg##{$get-name-6}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '#{$get-name-7}';
+  src: url('#{$get-path-7}.eot');
+  src: url('#{$get-path-7}.eot?#iefix') format('embedded-opentype'),
+  url('#{$get-path-7}.woff2') format('woff2'),
+  url('#{$get-path-7}.woff') format('woff'),
+  url('#{$get-path-7}.ttf') format('truetype'),
+  url('#{$get-path-7}.svg##{$get-name-7}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*============================
+  Common Style
+ ============================*/
+/*variables*/
+$black: #000;
+$white: #FFFFFF;
+$red: #FF5959;
+$bgr: #FAFAFA;
+$darkgray: #979797;
+$lightgray: #e7e7e7;
+$bodygray: #7c7c7c;
+$verygray: #575757;
+$lightred: #ff8d8d;
+
+/*mixin*/
+@mixin common-font-color($family,$size) {
+  font-family: $family;
+  font-size: $size;
+}
+
+@mixin common-font($family,$size,$color) {
+  @include common-font-color($family, $size);
+  color: $color;
+}
+
+@mixin common-btn($color,$background,$boder) {
+  color: $color;
+  background-color: $background;
+  border: $boder;
+}
+
+/*common-class*/
+.container {
+  max-width: 1170px;
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 200
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.height-nav {
+  height: 80px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-magin {
+  margin: 0;
+}
+
+.pb-100 {
+  padding-bottom: 130px;
+}
+
+.pb-200 {
+  padding-bottom: 200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body {
+  @include common-font('ProximaNova-Regular', 16px, $bodygray);
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  @include common-font('ProximaNova-Bold', null, $black);
+  @extend .no-magin;
+  font-weight: 400;
+}
+
+h1 {
+  @include common-font('ProximaNova-Bold', 41px, $red);
+  padding-bottom: 34px;
+}
+
+p {
+  @include common-font('ProximaNova-Light', 17px, $verygray);
+}
+
+li {
+  list-style-type: none;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+
+/*============================
+  Buttons
+ ============================*/
+.btn:hover, .btn-white:hover, .btn-white:focus, .btn-white:active, .btn-white.active {
+  @include common-btn($red, $white, null);
+}
+
+.btn-mg, .btn-wh {
+  padding: 5px 40px;
+  margin: 20px 0;
+}
+
+.btn-wh {
+  @include common-btn($white, null, 1px solid $white);
+}
+
+.btn-mg {
+  @include common-btn($red, null, 1px solid $red);
+  color: $red !important;
+}
+
+.btn-block {
+  @include common-btn($white, $red, 1px solid $red);
+}
+
+
+/*============================
+  Forms
+ ============================*/
+.form-control {
+  @include common-font('ProximaNova-Regular', 16px, $bodygray);
+  border: 1px solid $darkgray;
+  box-shadow: none;
+  margin-bottom: 30px;
+}
+
+.input-lg {
+  height: 56px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+
+/*============================
+  Navbar
+ ============================*/
+.header {
+  background-color: $white;
+  border-bottom: 1px solid $lightgray;
+
+  .navbar {
+    padding: 0.5rem 0;
+
+    .navbar-nav {
+      background-color: $white;
+
+      .nav-item {
+        padding-left: 25px;
+      }
+
+      a {
+        @include common-font('ProximaNova-Bold', 16px, $verygray);
+      }
+    }
+  }
+}
+
+/*============================
+  Home Page
+ ============================*/
+.banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 80px;
+  height: 650px;
+
+  .video-banner {
+    width: 100%;
+    line-height: 0;
+
+    video {
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+
+  .content-banner {
+    position: absolute;
+    top: 15%;
+
+    .title-banner, .item-map, .btn-banner {
+      padding-bottom: 80px;
+
+      .title-banner-bg {
+        @include common-font('ProximaNova-Bold', 67px, $white);
+        padding-bottom: 0px;
+      }
+
+      button {
+        width: 246px;
+        height: 54px;
+        border-radius: 40px;
+        background-color: $red;
+        @include common-font('ProximaNova-Bold', 16px, $white);
+      }
+
+    }
+  }
+}
+
+
+/*Page Section*/
+.page-section .col-sm-6 {
+  .float-left {
+    padding-left: 53px;
+    padding-right: 15px;
+  }
+
+  .float-right {
+    padding-left: 15px;
+    padding-right: 53px;
+  }
+
+  .section-content {
+    max-width: 590px;
+    padding-top: 150px;
+
+    .box-review {
+      padding-top: 30px;
+
+      .review-left {
+        float: left;
+        padding: 0 43px 50px 0;
+
+      }
+
+      .comment-review {
+        padding-top: 23px;
+
+        img {
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+/*Call to action*/
+.call-action {
+  .call-action-img {
+    margin-top: 59px;
+    margin-bottom: 47px;
+
+    h1 {
+      padding-bottom: 21px;
+    }
+  }
+
+  p {
+    @include common-font(null, 25px, $verygray);
+    padding-bottom: 57px;
+  }
+}
+
+/*Footer*/
+.footer {
+  background-color: $bgr;
+  height: 355px;
+
+  .list-icon {
+    padding: 55px 0;
+  }
+
+  .copy-right {
+    padding-bottom: 49px;
+  }
+}
+
+
+/*============================
+  Diary Page
+ ============================*/
+.diary-banner {
+  height: 460px;
+  background-color: $red;
+
+  .bn-content {
+    padding-top: 180px;
+
+    h1 {
+      @include common-font('ProximaNova-Light', px, $white);
+    }
+  }
+}
+
+.title-banner-sm {
+  @include common-font('ProximaNova-Light', px, $white);
+}
+
+.diary-post {
+  .post-img img {
+    width: 100%;
+  }
+
+  .box-post {
+    background-color: $bgr;
+    margin-top: 30px;
+
+    .post-content {
+      padding: 0 70px;
+
+      h3 {
+        padding: 50px 0;
+      }
+
+      .post-date {
+        color: $red;
+      }
+    }
+  }
+}
+
+.group-action {
+  li {
+    margin: 0 3px;
+  }
+
+  span {
+    margin: 15px;
+  }
+}
+
+.diary-al {
+  padding: 30px 0 50px 0;
+}
+
+.navigation {
+  margin: 55px 0;
+}
+
+/*============================
+  Diary Post Page
+ ============================*/
+.diary-act {
+  background-color: $bgr;
+}
+
+.diary-sg {
+  padding: 30px 0 20px 0;
+}
+
+.comment-title {
+  @include common-font('ProximaNova-Bold', 40px, $black);
+  padding: 90px 0 30px;
+}
+
+.name-comment {
+  color: $lightred;
+}
+
+.contact-section {
+  background-color: $bgr;
+  padding: 20px 0 5px 0;
+}
+
+/*============================
+  Mobile
+ ============================*/
+@media (max-width: 772px) {
+  /*Navbar*/
+  .navbar-brand, .navbar-toggler {
+    margin: 0 10px !important;
+  }
+  .navbar-nav {
+    border-top: 1px solid $lightgray;
+    margin-top: 15px;
+  }
+  .item-map {
+    padding-bottom: 50px;
+  }
+  /*Banner*/
+
+  /*Call To Img*/
+  .call-action .call-action-img img {
+    width: 100%;
+  }
+  .navigation li {
+    margin: 0;
+  }
+  /*Mobile Padding*/
+  .mobile-padding {
+    padding: 15px 15px !important;
+  }
+  .pb-mobile {
+    padding-bottom: 0px !important;
+  }
+}

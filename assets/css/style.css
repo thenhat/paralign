@@ -1,0 +1,431 @@
+/*----------------------------
+  NoteBook
+  ----------------------------
+
+  PROJECT:Paralign
+  DATE: 30/5/2019
+  AUTHUR: Nguyen The Nhat
+
+
+ -----------------------------*/
+/*Import-Path*/
+/*Import Fonts*/
+@font-face {
+  font-family: "ProximaNova-RegularIt";
+  src: url("../fonts/ProximaNova-RegularIt.eot");
+  src: url("../fonts/ProximaNova-RegularIt.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-RegularIt.woff2") format("woff2"), url("../fonts/ProximaNova-RegularIt.woff") format("woff"), url("../fonts/ProximaNova-RegularIt.ttf") format("truetype"), url("../fonts/ProximaNova-RegularIt.svg#ProximaNova-RegularIt") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ProximaNova-Regular";
+  src: url("../fonts/ProximaNova-Regular.eot");
+  src: url("../fonts/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.ttf") format("truetype"), url("../fonts/ProximaNova-Regular.svg#ProximaNova-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ProximaNova-LightIt";
+  src: url("../fonts/ProximaNova-LightIt.eot");
+  src: url("../fonts/ProximaNova-LightIt.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-LightIt.woff2") format("woff2"), url("../fonts/ProximaNova-LightIt.woff") format("woff"), url("../fonts/ProximaNova-LightIt.ttf") format("truetype"), url("../fonts/ProximaNova-LightIt.svg#ProximaNova-LightIt") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ProximaNova-Light";
+  src: url("../fonts/ProximaNova-Light.eot");
+  src: url("../fonts/ProximaNova-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Light.woff2") format("woff2"), url("../fonts/ProximaNova-Light.woff") format("woff"), url("../fonts/ProximaNova-Light.ttf") format("truetype"), url("../fonts/ProximaNova-Light.svg#ProximaNova-Light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ProximaNova-BoldIt";
+  src: url("../fonts/ProximaNova-BoldIt.eot");
+  src: url("../fonts/ProximaNova-BoldIt.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-BoldIt.woff2") format("woff2"), url("../fonts/ProximaNova-BoldIt.woff") format("woff"), url("../fonts/ProximaNova-BoldIt.ttf") format("truetype"), url("../fonts/ProximaNova-BoldIt.svg#ProximaNova-BoldIt") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ProximaNova-Bold";
+  src: url("../fonts/ProximaNova-Bold.eot");
+  src: url("../fonts/ProximaNova-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Bold.woff2") format("woff2"), url("../fonts/ProximaNova-Bold.woff") format("woff"), url("../fonts/ProximaNova-Bold.ttf") format("truetype"), url("../fonts/ProximaNova-Bold.svg#ProximaNova-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ProximaNova-Black";
+  src: url("../fonts/ProximaNova-Black.eot");
+  src: url("../fonts/ProximaNova-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova-Black.woff2") format("woff2"), url("../fonts/ProximaNova-Black.woff") format("woff"), url("../fonts/ProximaNova-Black.ttf") format("truetype"), url("../fonts/ProximaNova-Black.svg#ProximaNova-Black") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*============================
+  Common Style
+ ============================*/
+/*variables*/
+/*mixin*/
+/*common-class*/
+.container {
+  max-width: 1170px;
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 200;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.height-nav {
+  height: 80px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-magin, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+}
+
+.pb-100 {
+  padding-bottom: 130px;
+}
+
+.pb-200 {
+  padding-bottom: 200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body {
+  font-family: "ProximaNova-Regular";
+  font-size: 16px;
+  color: #7c7c7c;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "ProximaNova-Bold";
+  color: #000;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: "ProximaNova-Bold";
+  font-size: 41px;
+  color: #FF5959;
+  padding-bottom: 34px;
+}
+
+p {
+  font-family: "ProximaNova-Light";
+  font-size: 17px;
+  color: #575757;
+}
+
+li {
+  list-style-type: none;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+/*============================
+  Buttons
+ ============================*/
+.btn:hover, .btn-white:hover, .btn-white:focus, .btn-white:active, .btn-white.active {
+  color: #FF5959;
+  background-color: #FFFFFF;
+}
+
+.btn-mg, .btn-wh {
+  padding: 5px 40px;
+  margin: 20px 0;
+}
+
+.btn-wh {
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
+.btn-mg {
+  color: #FF5959;
+  border: 1px solid #FF5959;
+  color: #FF5959 !important;
+}
+
+.btn-block {
+  color: #FFFFFF;
+  background-color: #FF5959;
+  border: 1px solid #FF5959;
+}
+
+/*============================
+  Forms
+ ============================*/
+.form-control {
+  font-family: "ProximaNova-Regular";
+  font-size: 16px;
+  color: #7c7c7c;
+  border: 1px solid #979797;
+  box-shadow: none;
+  margin-bottom: 30px;
+}
+
+.input-lg {
+  height: 56px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+/*============================
+  Navbar
+ ============================*/
+.header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #e7e7e7;
+}
+.header .navbar {
+  padding: 0.5rem 0;
+}
+.header .navbar .navbar-nav {
+  background-color: #FFFFFF;
+}
+.header .navbar .navbar-nav .nav-item {
+  padding-left: 25px;
+}
+.header .navbar .navbar-nav a {
+  font-family: "ProximaNova-Bold";
+  font-size: 16px;
+  color: #575757;
+}
+
+/*============================
+  Home Page
+ ============================*/
+.banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 80px;
+  height: 650px;
+}
+.banner .video-banner {
+  width: 100%;
+  line-height: 0;
+}
+.banner .video-banner video {
+  min-width: 100%;
+  min-height: 100%;
+}
+.banner .content-banner {
+  position: absolute;
+  top: 15%;
+}
+.banner .content-banner .title-banner, .banner .content-banner .item-map, .banner .content-banner .btn-banner {
+  padding-bottom: 80px;
+}
+.banner .content-banner .title-banner .title-banner-bg, .banner .content-banner .item-map .title-banner-bg, .banner .content-banner .btn-banner .title-banner-bg {
+  font-family: "ProximaNova-Bold";
+  font-size: 67px;
+  color: #FFFFFF;
+  padding-bottom: 0px;
+}
+.banner .content-banner .title-banner button, .banner .content-banner .item-map button, .banner .content-banner .btn-banner button {
+  width: 246px;
+  height: 54px;
+  border-radius: 40px;
+  background-color: #FF5959;
+  font-family: "ProximaNova-Bold";
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+/*Page Section*/
+.page-section .col-sm-6 .float-left {
+  padding-left: 53px;
+  padding-right: 15px;
+}
+.page-section .col-sm-6 .float-right {
+  padding-left: 15px;
+  padding-right: 53px;
+}
+.page-section .col-sm-6 .section-content {
+  max-width: 590px;
+  padding-top: 150px;
+}
+.page-section .col-sm-6 .section-content .box-review {
+  padding-top: 30px;
+}
+.page-section .col-sm-6 .section-content .box-review .review-left {
+  float: left;
+  padding: 0 43px 50px 0;
+}
+.page-section .col-sm-6 .section-content .box-review .comment-review {
+  padding-top: 23px;
+}
+.page-section .col-sm-6 .section-content .box-review .comment-review img {
+  padding: 0 10px;
+}
+
+/*Call to action*/
+.call-action .call-action-img {
+  margin-top: 59px;
+  margin-bottom: 47px;
+}
+.call-action .call-action-img h1 {
+  padding-bottom: 21px;
+}
+.call-action p {
+  font-size: 25px;
+  color: #575757;
+  padding-bottom: 57px;
+}
+
+/*Footer*/
+.footer {
+  background-color: #FAFAFA;
+  height: 355px;
+}
+.footer .list-icon {
+  padding: 55px 0;
+}
+.footer .copy-right {
+  padding-bottom: 49px;
+}
+
+/*============================
+  Diary Page
+ ============================*/
+.diary-banner {
+  height: 460px;
+  background-color: #FF5959;
+}
+.diary-banner .bn-content {
+  padding-top: 180px;
+}
+.diary-banner .bn-content h1 {
+  font-family: "ProximaNova-Light";
+  font-size: px;
+  color: #FFFFFF;
+}
+
+.title-banner-sm {
+  font-family: "ProximaNova-Light";
+  font-size: px;
+  color: #FFFFFF;
+}
+
+.diary-post .post-img img {
+  width: 100%;
+}
+.diary-post .box-post {
+  background-color: #FAFAFA;
+  margin-top: 30px;
+}
+.diary-post .box-post .post-content {
+  padding: 0 70px;
+}
+.diary-post .box-post .post-content h3 {
+  padding: 50px 0;
+}
+.diary-post .box-post .post-content .post-date {
+  color: #FF5959;
+}
+
+.group-action li {
+  margin: 0 3px;
+}
+.group-action span {
+  margin: 15px;
+}
+
+.diary-al {
+  padding: 30px 0 50px 0;
+}
+
+.navigation {
+  margin: 55px 0;
+}
+
+/*============================
+  Diary Post Page
+ ============================*/
+.diary-act {
+  background-color: #FAFAFA;
+}
+
+.diary-sg {
+  padding: 30px 0 20px 0;
+}
+
+.comment-title {
+  font-family: "ProximaNova-Bold";
+  font-size: 40px;
+  color: #000;
+  padding: 90px 0 30px;
+}
+
+.name-comment {
+  color: #ff8d8d;
+}
+
+.contact-section {
+  background-color: #FAFAFA;
+  padding: 20px 0 5px 0;
+}
+
+/*============================
+  Mobile
+ ============================*/
+@media (max-width: 772px) {
+  /*Navbar*/
+  .navbar-brand, .navbar-toggler {
+    margin: 0 10px !important;
+  }
+
+  .navbar-nav {
+    border-top: 1px solid #e7e7e7;
+    margin-top: 15px;
+  }
+
+  .item-map {
+    padding-bottom: 50px;
+  }
+
+  /*Banner*/
+  /*Call To Img*/
+  .call-action .call-action-img img {
+    width: 100%;
+  }
+
+  .navigation li {
+    margin: 0;
+  }
+
+  /*Mobile Padding*/
+  .mobile-padding {
+    padding: 15px 15px !important;
+  }
+
+  .pb-mobile {
+    padding-bottom: 0px !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
